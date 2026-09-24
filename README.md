@@ -195,7 +195,7 @@ Veličina skrivenog sloja (128) je izabrana poređenjem širina i dubina na **ce
 
 64 → 128 donosi ~0.6pp za oba optimizatora; dalje proširenje na 256 još samo 0.06-0.26pp uz skoro duplo duži trening, a drugi skriveni sloj ne pomaže. 
 
-### Covertype: loša skaliranost u stvarnim podacima
+### Covertype
 
 Covertype (`sklearn.datasets.fetch_covtype`) predviđa tip šumskog pokrivača (7 klasa) iz 54 obeležja dve vrste:
 
