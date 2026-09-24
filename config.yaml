@@ -1,0 +1,46 @@
+# Konfiguracija za jedan trening (python run_train.py [config.yaml]).
+# Podrazumevane vrednosti ispod su podešeni lr-ovi za moons/adam iz compare_datasets.make_optimizers()
+# (videti CLAUDE.md: "Poznati rezultati"). Sekcija optimizer prosleđuje SVE ključeve osim "name"
+# direktno konstruktoru (optimizers/*.py) - dodaj/izbaci ključ da promeniš hiperparametar, bez izmene
+# run_train.py.
+
+# name: moons | circles | mnist | covtype
+# moons/circles: level (easy | hard | hard_rotated - skaliranje/rotacija obeležja), n_samples, test_size,
+# val_size (svi opcioni);
+# mnist: n_train, n_test (opcioni); covtype: standardize (true = selektivno standardizovano, false = sirovo), n_train, n_test
+
+dataset:
+  name: moons
+  level: hard
+  n_samples: 2000
+  test_size: 0.25
+
+# layers: ulazni sloj mora odgovarati dataset-u (2 za moons/circles, 784 za mnist, 54 za covtype),
+# izlazni sloj je broj klasa (moons/circles 4, mnist 10, covtype 7)
+# activation (opciono): tanh (podrazumevano) | relu (u projektu se koristi za covtype)
+model:
+  layers: [2, 16, 16, 4]
+
+# name: sgd | momentum | nag | adagrad | rmsprop | adam | adamw
+# ostali ključevi zavise od optimizatora (videti CLAUDE.md "Optimizatori"):
+#   momentum/nag: momentum (podrazumevano 0.9), momentum dodatno: nesterov (true/false)
+#   adagrad: eps
+#   rmsprop: rho, eps
+#   adam/adamw: beta1, beta2, eps; adamw dodatno: weight_decay
+optimizer:
+  name: adam
+  lr: 0.01
+
+training:
+  batch_size: 32
+  epochs: 100
+  tol: 0.001       # ako je zadato: prekid kad `patience` epoha nema pada loss-a bar tol (plato)
+  patience: 30
+  diverge_factor: 10.0
+
+# jedan seed za sve - podelu dataset-a, Glorot inicijalizaciju MLP-a i redosled mini-batch-eva
+# (isti obrazac kao compare_datasets.run(): jedan seed pokreće ceo trening)
+seed: 0
+
+output:
+  plot: classification_run.png   # null da se ne crta
