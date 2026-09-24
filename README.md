@@ -1,6 +1,6 @@
 # Optimizacija
 
-Implementacije sedam gradijentnih optimizatora uNumPy-ju i njihovo poređenje na klasifikaciji skupova moons, circles, MNIST i Covertype (male neuronske mreže, mini-batch trening). Fokus je na POREĐENJU KAKO optimizatori rade (brzina, stabilnost).
+Implementacije sedam gradijentnih optimizatora uNumPy-ju i njihovo poređenje na klasifikaciji skupova moons, circles, MNIST i Covertype (male neuronske mreže, mini-batch trening). Fokus je na poređenju kako optimizatori rade (brzina, stabilnost).
 
 Glavni eksperiment: moons i circles na četiri **nivoa težine** (lako, srednje, teško, teško + rotacija) koji se razlikuju samo po linearnoj transformaciji obeležja: koliko su loše skalirana i da li je ta loša skaliranost poravnata sa osama. Tako se težina menja kontrolisano, a sve ostalo ostaje isto.
 
