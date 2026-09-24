@@ -14,7 +14,7 @@ Glavni eksperiment: moons i circles na četiri **nivoa težine** (lako, srednje,
 - Na **MNIST-u** (obeležja na istoj skali) adaptivni nemaju prednost: Momentum/NAG su na vrhu, ~0.7pp **bolji** od AdaGrad-a/RMSProp-a (Adam/AdamW su im blizu). Prednost adaptivnih optimizatora nije univerzalna, nego je vezana za lošu uslovljenost.
 - Na **Covertype-u** (stvarni podaci sa prirodno različitim skalama obeležja, od metara do one-hot 0/1) ponavlja se obrazac teškog nivoa: sa selektivnom standardizacijom svi optimizatori postižu 78-81%, a na sirovim obeležjima SGD pada na nivo najčešće klase (~49%), dok Adam/AdamW dostižu ~68-69%.
 
-[presentation.ipynb](presentation.ipynb) je sveobuhvatna prezentacija projekta (predstavljanje i analiza problema, pa rezultata) - poziva funkcije projekta i generiše sve grafike 
+
 
 ## Optimizatori
 
